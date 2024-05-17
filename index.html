@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Adventure Travel</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .hero-section {
+        background: url("/assets/Tower\ Bridge.jpg") center/cover no-repeat;
+        height: 100vh;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+
+      .about-section,
+      .contact-section {
+        padding: 50px 0;
+      }
+
+      .footer-section {
+        padding: 20px 0;
+        background-color: #343a40;
+        color: white;
+        text-align: center;
+      }
+
+      .cta-button {
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="container">
+        <h1 class="display-4">Welcome to Adventure Travel</h1>
+        <p class="lead">Explore the world with us</p>
+        <button
+          id="learn-more"
+          class="btn btn-primary cta-button"
+          data-toggle="modal"
+          data-target="#learnMoreModal"
+        >
+          Learn More
+        </button>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+      <div class="container">
+        <h2>About Us</h2>
+        <p>
+          Adventure Travel adalah agen perjalanan pilihan Anda untuk pengalaman
+          paling mendebarkan dan tak terlupakan di seluruh dunia. Tim ahli kami
+          akan memandu Anda melalui petualangan menakjubkan dan memastikan
+          perjalanan Anda tak terlupakan
+        </p>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+      <div class="container">
+        <h2>Contact Us</h2>
+        <form id="contact-form">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" class="form-control" id="name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Your Email</label>
+            <input type="email" class="form-control" id="email" required />
+          </div>
+          <div class="form-group">
+            <label>Preferred Contact Method</label><br />
+            <input
+              type="radio"
+              id="contact-email"
+              name="contact-method"
+              value="email"
+              checked
+            />
+            <label for="contact-email">Email</label><br />
+            <input
+              type="radio"
+              id="contact-phone"
+              name="contact-method"
+              value="phone"
+            />
+            <label for="contact-phone">Phone</label>
+          </div>
+          <div class="form-group">
+            <label for="newsletter">Subscribe to AdventureTravel</label><br />
+            <input type="checkbox" id="newsletter" name="newsletter" />
+          </div>
+          <button type="submit" class="btn btn-success">Submit</button>
+          <button type="button" id="reset-button" class="btn btn-secondary">
+            Reset
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer-section">
+      <p>&copy; 2024 Adventure Travel. Seluruh hak cipta.</p>
+    </footer>
+
+    <!-- Modal for Learn More -->
+    <div
+      class="modal fade"
+      id="learnMoreModal"
+      tabindex="-1"
+      aria-labelledby="learnMoreModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="learnMoreModalLabel">More About Us</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>
+              Di Adventure Travel, kami menawarkan berbagai paket perjalanan
+              menarik yang sesuai dengan kebutuhan setiap petualang. Baik Anda
+              ingin mendaki puncak tertinggi atau menyelam ke lautan terdalam,
+              kami punya sesuatu untuk semua orang. Bergabunglah dengan kami dan
+              wujudkan impian perjalanan Anda!
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal for Form Submission -->
+    <div
+      class="modal fade"
+      id="formSubmissionModal"
+      tabindex="-1"
+      aria-labelledby="formSubmissionModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="formSubmissionModalLabel">
+              Form Submission Details
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body" id="formDetails">
+            <!-- Form details will be inserted here by JavaScript -->
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Custom JS -->
+    <script>
+      document
+        .getElementById("contact-form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          const name = document.getElementById("name").value;
+          const email = document.getElementById("email").value;
+          const contactMethod = document.querySelector(
+            'input[name="contact-method"]:checked'
+          ).value;
+          const newsletter = document.getElementById("newsletter").checked
+            ? "Yes"
+            : "No";
+
+          const formDetails = `
+                <p><strong>Name:</strong> ${name}</p>
+                <p><strong>Email:</strong> ${email}</p>
+                <p><strong>Preferred Contact Method:</strong> ${contactMethod}</p>
+                <p><strong>Subscribe to AdventureTravel:</strong> ${newsletter}</p>
+            `;
+
+          document.getElementById("formDetails").innerHTML = formDetails;
+          $("#formSubmissionModal").modal("show");
+        });
+
+      document
+        .getElementById("reset-button")
+        .addEventListener("click", function () {
+          document.getElementById("contact-form").reset();
+        });
+    </script>
+  </body>
+</html>
